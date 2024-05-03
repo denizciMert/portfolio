@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Mert Denizci | Portfolio",
-  description: "desc for google?",
+  description: "This is a personel protfolio website.",
 };
 
 interface RootLayoutProps {
