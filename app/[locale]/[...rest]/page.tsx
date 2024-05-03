@@ -1,12 +1,18 @@
+"use client";
 import { redirect } from "next/navigation";
-import { cookies } from "next/headers";
+import { useEffect, useState } from "react";
 
 export default function Index() {
-  const cookieStore = cookies();
-  const locale = cookieStore.get("NEXT_LOCALE");
+  const [locale, setLocale] = useState<any>();
+  useEffect(() => {
+    const fromStorage = localStorage.getItem("locale");
+    setLocale(fromStorage);
+  }, []);
   if (locale === undefined) {
     redirect(`/tr`);
+  } else if (locale === "tr") {
+    redirect(`/tr`);
   } else {
-    redirect(`/${locale.value}`);
+    redirect(`/en`);
   }
 }
